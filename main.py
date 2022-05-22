@@ -4,17 +4,17 @@ import json
 from requests.auth import HTTPBasicAuth
 method = "get"
 
-a_file = open("USstates_avg_latLong", "r")
+a_file = open("USstates_avg_latLong.json", "r")
 data = json.load(a_file)
 
 sg.theme('Default1')
 layout = [
-    [sg.Text('What state/territory are you in?')],
-    [sg.Text('State/Territory', size =(12, 1)), sg.InputText()],
+    [sg.Text('What state are you in?')],
+    [sg.Text('State', size =(5, 1)), sg.InputText()],
     [sg.OK(), sg.Cancel()]
 ]
 
-window = sg.Window('   Lighting Option Price Calculator', layout, size=(500, 100))
+window = sg.Window('   Lighting Option Price Calculator', layout, size=(450, 100))
 inputstate = ""
 
 while True:
@@ -52,13 +52,12 @@ provider = parse_json["outputs"]["utility_name"]
   #1.20 10000 hr
 
 layout2 = [
-    [sg.Text('What state/territory are you in?')],
     [sg.Text('Purpose (Commercial, Industrial, or Residential)', size =(40, 1)), sg.InputText()],
     [sg.Text('Number of Lightbulbs', size =(40, 1)), sg.InputText()],
     [sg.OK(), sg.Cancel()]
 ]
 
-window2 = sg.Window('   Lighting Option Price Calculator', layout2, size=(700, 130))
+window2 = sg.Window('   Lighting Option Price Calculator', layout2, size=(700, 110))
 while True:
     event, values = window2.read()
     if event == "OK":
